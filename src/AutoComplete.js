@@ -8,10 +8,10 @@ export default createComponent(
     ...mapError(props),
     ...inputProps,
     searchText: dataSourceConfig ? value[dataSourceConfig.text] : value,
-    onNewRequest: value => {
+    onNewRequest: (value, index) => {
       inputProps.onChange(value)
       if(onNewRequestFunc && typeof onNewRequestFunc === 'function') {
-        onNewRequestFunc(value)
+        onNewRequestFunc(value, index)
       }
     }
   }))
